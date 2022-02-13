@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sast-scan
-      - uses: azure/container-scan@v0
+        uses: azure/container-scan@v0
         with:
          image-name: my-image:my-tag
 
