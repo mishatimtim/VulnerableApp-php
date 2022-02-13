@@ -21,6 +21,13 @@ env:
                                                   # containerDefinitions section of your task definition
 
 jobs:
+  security-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sast-scan
+        uses: AppThreat/sast-scan-action@1.0.2  
+
+          
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
