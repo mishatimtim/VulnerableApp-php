@@ -25,7 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sast-scan
-        uses: AppThreat/sast-scan-action@1.0.2  
+      - uses: azure/container-scan@v0
+        with:
+         image-name: my-image:my-tag
 
           
   deploy:
