@@ -27,7 +27,7 @@ jobs:
       - name: sast-scan
         uses: azure/container-scan@v0
         with:
-         image-name: my-image:my-tag
+         image-name: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
           
   deploy:
