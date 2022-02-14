@@ -64,7 +64,8 @@ jobs:
         uses: actions/upload-artifact@master
         with:
            name: Depcheck report
-           path: ${{github.workspace}}/reports      
+           path: ${{github.workspace}}/reports  
+           
   Security-check:
       runs-on: ubuntu-latest
       needs: [CI-pipeline]
@@ -91,6 +92,12 @@ jobs:
          with:
            type: "aws"
            output: reports
+           
+       - name: Check Dependency
+         uses: AppThreat/sast-scan-action@master
+         with:
+          type: "depscan"
+          output: reports
            
   CD-pipeline:
     runs-on: ubuntu-latest
