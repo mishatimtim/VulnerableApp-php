@@ -35,6 +35,11 @@ jobs:
         with:
           sarif_file: results.sarif
           
+      - name: Sast-Scan
+        uses: AppThreat/sast-scan-action@master
+        with:
+          type: "credscan"
+      
   CI-pipeline:
     runs-on: ubuntu-latest
     steps:
