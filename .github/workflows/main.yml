@@ -46,6 +46,9 @@ jobs:
       runs-on: ubuntu-latest
       needs: [CI-pipeline]
       steps:
+       - name: Checkout code
+         uses: actions/checkout@v2
+         
        - name: SAST Scan PHP
          uses: docker://ghcr.io/psalm/psalm-security-scan
         
