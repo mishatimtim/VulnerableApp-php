@@ -45,19 +45,7 @@ jobs:
   Security-check:
       runs-on: ubuntu-latest
       needs: [CI-pipeline]
-      steps:
-       - name: Self sast-scan
-         uses: AppThreat/sast-scan-action@v1.0.0
-         with:
-          output: reports
-          type: python,bash
-        
-       - name: Upload scan reports
-         uses: actions/upload-artifact@v1.0.0
-         with:
-          name: sast-scan-reports
-          path: reports
-         
+      steps:       
        - name: Checkout code
          uses: actions/checkout@v2
          
@@ -72,12 +60,14 @@ jobs:
        - name: Check Creds Leaks
          uses: AppThreat/sast-scan-action@master
          with:
-           type: "credscan"    
+           type: "credscan"
+           output: reports
            
        - name: Check Securing AWS Resources
          uses: AppThreat/sast-scan-action@master
          with:
-           type: "aws"         
+           type: "aws"
+           output: reports
            
   CD-pipeline:
     runs-on: ubuntu-latest
