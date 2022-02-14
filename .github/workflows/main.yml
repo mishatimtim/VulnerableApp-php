@@ -73,12 +73,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull docker image
-        run: docker pull sample
+        run: docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - uses: lazy-actions/gitrivy@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          image: sample
+          image: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
            
   CD-pipeline:
     runs-on: ubuntu-latest
