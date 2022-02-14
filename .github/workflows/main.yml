@@ -65,7 +65,7 @@ jobs:
        - name: Check Securing AWS Resources
          uses: AppThreat/sast-scan-action@master
          with:
-           type: "credscan"         
+           type: "aws"         
            
   CD-pipeline:
     runs-on: ubuntu-latest
